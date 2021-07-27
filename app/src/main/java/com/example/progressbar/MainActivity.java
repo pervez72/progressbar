@@ -3,6 +3,8 @@ package com.example.progressbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +18,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //clear tittle bar
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        //remove notification bar
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+                );
 
         progressBar=findViewById(R.id.progressbarID);
 
@@ -23,10 +34,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 doWork();
-
-
-
-
             }
         });
 
